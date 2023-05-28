@@ -4,6 +4,7 @@ import { useColorMode, NativeBaseProvider, extendTheme } from "native-base";
 import AppRoutes from "./src/routes/AppRoutes";
 
 
+
 // Define the config
 const config = {
   useSystemColorMode: false,
@@ -19,6 +20,7 @@ declare module "native-base" {
 
 export default function App() {
   return (
+    
     <NativeBaseProvider>
       <NavigationContainer>
         <AppRoutes />
