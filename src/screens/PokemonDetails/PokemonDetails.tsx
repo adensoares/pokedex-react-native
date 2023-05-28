@@ -82,7 +82,7 @@ function PokemonDetails() {
     <Box flex={1}>
       {loading ? (
         <Box flex={1} justifyContent="center" alignItems="center">
-          <Spinner bg={"red.500"} size={'lg'} accessibilityLabel="Loading..." />
+          <Spinner color={"red.500"} size={'lg'} accessibilityLabel="Loading..." />
         </Box>
       ) : error ? (
         <Box flex={1} justifyContent="center" alignItems="center">

@@ -49,12 +49,13 @@ export const getPokedex = async (limit = 50) => {
       results.map(async (pokemon: any) => {
         const pokemonResponse = await api.get(pokemon.url);
         const { id, name, sprites } = pokemonResponse.data;
-        const pokemonImage = sprites.other['official-artwork'].front_default;
+        const formattedNumber = id.toString().padStart(3, '0');
         const formattedName = capitalizeFirstLetter(name);
+        const pokemonImage = sprites.other['official-artwork'].front_default;
 
         return {
           id: id,
-          number: id.toString().padStart(3, '0'),
+          number: formattedNumber,
           name: formattedName,
           image: pokemonImage,
         };
@@ -77,12 +78,13 @@ export const getPokemonDetails = async (id: number): Promise<PokemonDetails> => 
       .map((move: any) => {
         return move.move.name.split('-').map(capitalizeFirstLetter).join(' ');
       });
+    const formattedNumber = id.toString().padStart(3, '0');
     const formattedName = capitalizeFirstLetter(name);
     const formattedTypes = types.map((type: any) => capitalizeFirstLetter(type.type.name));
     const formattedHeight = height / 10;
     const pokemonImage = sprites.other['official-artwork'].front_default;
     return {
-      number: id.toString().padStart(3, '0'),
+      number: formattedNumber,
       name: formattedName,
       types: formattedTypes,
       weight,
