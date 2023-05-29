@@ -1,10 +1,5 @@
-import axios from 'axios';
+import api from '../axios';
 import { capitalizeFirstLetter } from '../../utils/index';
-
-const api = axios.create({
-  baseURL: 'https://pokeapi.co/api/v2',
-});
-
 interface Pokemon {
   id: number;
   number: string;
